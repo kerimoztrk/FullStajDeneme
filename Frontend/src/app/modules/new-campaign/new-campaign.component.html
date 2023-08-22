@@ -1,0 +1,34 @@
+<h2>Yeni kampanya ekle</h2>
+<div id ="container">
+    <form (ngSubmit)="onSubmit()">
+
+        <tr>
+            <td  class = "string">Kampanya Adı</td>
+            <td><input class = "inputClass" type="text" class = "inputClass" id="campaignName" [(ngModel)] = "campaign.campaignName" name = campaignName></td>
+        </tr>
+
+        <tr>
+            <td  class = "string">Kategori</td>
+            <td><input class = "inputClass" type="text" class = "inputClass" id="campaignCategory" [(ngModel)] = "campaign.campaignCategory" name = campaignCategory></td>
+        </tr>
+
+        <tr>
+            <td class = "string">Kampanya Açıklaması</td>
+            <td><input class = "inputClass" type="text" class = "inputClass" id="campaignDescription" [(ngModel)] = "campaign.campaignDescription" name = campaignDescription></td>
+        </tr>
+
+        <tr>
+            <td class = "string">Aktiflik durumu</td>
+            <td><select class = "inputClass" class="input" id="campaignStatus" [(ngModel)]="campaign.status" name=campaignStatus>
+                <option value="true">Açık</option>
+                <option value="false">Kapalı</option>
+            </select></td>
+        </tr>
+
+        
+
+        <td colspan="2"><button class="button-7" type="submit">Yayınla</button></td>
+
+
+    </form>
+</div>

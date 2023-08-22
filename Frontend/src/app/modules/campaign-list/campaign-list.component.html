@@ -1,0 +1,32 @@
+<h2>Kampanya Listesi</h2>
+<a id="newCamp" class = "button-7" routerLink='/newCampaign'>Yeni kampanya Ekle</a>
+<table>
+    <thead>
+        <tr>
+            <td class="headers">ID</td>
+            <td class="headers">Sigorta Adı</td>
+            <td class="headers">Kategori</td>
+            <td class="headers">Açıklama</td>
+            <td class="headers">Aktiflik durumu</td>
+            
+            <td class="headers" colspan = "2">Butonlar</td>
+        </tr>
+
+    </thead>
+    <tbody>
+        <tr *ngFor="let c of campaigns">
+            <td>{{c.campaignID}}</td>
+            <td>{{c.campaignName}}</td>
+            <td>{{c.campaignCategory}}</td>
+            <td>{{c.campaignDescription}}</td>
+            <td>{{c.status}}</td>
+            
+            <td>
+                <a id = "aID" class = "button-7" routerLink='/editCampaign/{{c.campaignID}}' [state]="c">Düzenle</a>
+            </td>
+            <td>
+                <button class="button-7" type="submit" (click)="deleteCampaign(c.campaignID)" (click)="reloadCurrentPage()">Sil</button>
+            </td>
+        </tr>
+    </tbody>
+</table>
