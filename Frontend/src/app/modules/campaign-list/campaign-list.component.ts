@@ -8,14 +8,26 @@ import { CampaignService } from 'src/app/services/campaign.service';
   styleUrls: ['./campaign-list.component.css']
 })
 export class CampaignListComponent implements OnInit {
-  campaigns : Campaign[] = [];
+  campaigns: Campaign[] = [];
+  trueStatusCount: number = 0;
+  falseStatusCount: number = 0;
 
-  constructor(private campaignService : CampaignService) {}
+  constructor(private campaignService: CampaignService) {}
 
   ngOnInit(): void {
-    this.campaignService.getAllCampaigns().subscribe(data =>{
+    this.getCampaigns();
+  }
+
+  getCampaigns() {
+    this.campaignService.getAllCampaigns().subscribe(data => {
       this.campaigns = data;
-    })
+      this.countStatusValues();
+    });
+  }
+
+  countStatusValues() {
+    this.trueStatusCount = this.campaigns.filter(campaign => campaign.status === true).length;
+    this.falseStatusCount = this.campaigns.filter(campaign => campaign.status === false).length;
   }
 
   deleteCampaign(id : number){
@@ -24,6 +36,8 @@ export class CampaignListComponent implements OnInit {
 
   reloadCurrentPage() {
     window.location.reload();
-   }
-
+  }
 }
+
+
+  

@@ -77,3 +77,10 @@ h2 {
   background-color: #B8860B; /* Koyu altın sarısı */
   box-shadow: none;
 }
+
+p {
+  font-weight: bold;
+  margin-top: 10px;
+}
+
+
